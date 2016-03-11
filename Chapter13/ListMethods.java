@@ -38,9 +38,9 @@ public class ListMethods
        }
        else        // All other size lists are created here
        {
-          tempList.add(list.get(list.size());
-          list.remove(list.size());
-          tempList.add(reverseList(list).get(list.size() - 1));
+          tempList.add(list.get(list.size() - 1));
+          list.remove(list.size() - 1);
+          tempList.add(reverseList(list).get(list.size() - 2));
        }
        System.out.println(tempList);
        return tempList;
