@@ -7,14 +7,12 @@ public class ListMethods
       ArrayList<Integer> tempList = new ArrayList<Integer>();
       if (n <= 0)  // The smallest list we can make
       {
-          return tempList;
       }
       else        // All other size lists are created here
       {
-          tempList.add(n);
           tempList.addAll(makeList(n-1));
+          tempList.add(n);
       }
-      Collections.sort(tempList);
       return tempList;
    }
    
@@ -30,7 +28,6 @@ public class ListMethods
    
    public static ArrayList<Integer> reverseList(ArrayList<Integer> tList)
    {
-       ArrayList<Integer> tempList = new ArrayList<Integer>();
        ArrayList<Integer> list = ListMethods.deepClone(tList);
        if (list.size() <= 1)  // The smallest list we can make
        {
@@ -38,11 +35,10 @@ public class ListMethods
        }
        else        // All other size lists are created here
        {
-          tempList.add(list.get(list.size() - 1));
-          list.remove(list.size() - 1);
-          tempList.add(reverseList(list).get(list.size() - 2));
+           Integer tempInt = list.remove(0);
+           list = ListMethods.reverseList(list);
+           list.add(tempInt);
        }
-       System.out.println(tempList);
-       return tempList;
+       return list;
    }
 }
