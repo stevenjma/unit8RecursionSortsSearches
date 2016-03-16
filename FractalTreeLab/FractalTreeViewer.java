@@ -27,7 +27,7 @@ public class FractalTreeViewer implements ActionListener
      * Default constructor for objects of class FractalTreeViewer
      */
     public FractalTreeViewer()
-    {
+    {/*
         tools = new JPanel ();
         tools.setLayout (new BoxLayout(tools, BoxLayout.X_AXIS));
         tools.setBackground (Color.yellow);
@@ -54,11 +54,11 @@ public class FractalTreeViewer implements ActionListener
         tools.add (increase);
         tools.add (Box.createHorizontalStrut (20));
         tools.add (orderLabel);
-
+*/
         drawing = new FractalTreePanel ();
 
         panel = new JPanel();
-        panel.add (tools);
+        //panel.add (tools);
         panel.add (drawing);
 
         frame = new JFrame();
@@ -70,7 +70,7 @@ public class FractalTreeViewer implements ActionListener
     }
 
     public void actionPerformed (ActionEvent event)
-    {
+    {/*
         int order = drawing.getOrder();
 
         if (event.getSource() == increase)
@@ -83,9 +83,9 @@ public class FractalTreeViewer implements ActionListener
             orderLabel.setText ("Order: " + order);
             drawing.setOrder (order);
             frame.repaint();
-        }
+        }*/
     }
-    
+ 
     public static void main(String [] args)
     {
         FractalTreeViewer viewer = new FractalTreeViewer();
