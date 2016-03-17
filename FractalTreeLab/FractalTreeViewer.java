@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 /**
@@ -8,16 +7,12 @@ import javax.swing.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FractalTreeViewer implements ActionListener
+public class FractalTreeViewer
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private final int WIDTH = 400;
-    private final int HEIGHT = 500;
+    private final int WIDTH = 1200;
+    private final int HEIGHT = 1000;
 
-    private final int MIN = 1, MAX = 12;
-
-    private JButton increase, decrease;
-    private JLabel titleLabel, orderLabel;
     private FractalTreePanel drawing;
     private JPanel panel, tools;
     private JFrame frame;
@@ -67,23 +62,6 @@ public class FractalTreeViewer implements ActionListener
         frame.setSize(WIDTH, HEIGHT);
         frame.add(panel);
         frame.setVisible(true);
-    }
-
-    public void actionPerformed (ActionEvent event)
-    {/*
-        int order = drawing.getOrder();
-
-        if (event.getSource() == increase)
-            order++;
-        else
-            order--;
-
-        if (order >= MIN && order <= MAX)
-        {
-            orderLabel.setText ("Order: " + order);
-            drawing.setOrder (order);
-            frame.repaint();
-        }*/
     }
  
     public static void main(String [] args)
