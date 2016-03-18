@@ -64,9 +64,29 @@ public class FractalTreeViewer
         frame.setVisible(true);
     }
  
-    public static void main(String [] args)
+    public static void main(String [] args) throws InterruptedException
     {
         FractalTreeViewer viewer = new FractalTreeViewer();
+        for (int j = 0; j < 1000; j++){
+            for (int i = 0; i < 40; i++){
+                viewer.drawing.setAngle(i);
+                //viewer.drawing.setRightAngle(75 - i);
+                viewer.drawing.repaint();
+                Thread.sleep(50);
+            }
+            for (int i = 40; i > 0; i--){
+                viewer.drawing.setAngle(i);
+                //viewer.drawing.setRightAngle(75 - i);
+                viewer.drawing.repaint();
+                Thread.sleep(50);
+            }
+        }
+        for (int i = 0; i < 20; i++){
+            viewer.drawing.setAngle(i);
+            //viewer.drawing.setRightAngle(75 - i);
+            viewer.drawing.repaint();
+            Thread.sleep(50);
+        }
     }
 
 }

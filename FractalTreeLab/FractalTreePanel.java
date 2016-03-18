@@ -14,7 +14,7 @@ public class FractalTreePanel extends JPanel
     private final int YSTART = 975;
     private final int XEND = 625;
     private final int YEND = 775;
-    private final int ANGLE = 15;
+    private final int INITIALANGLE = -15;
     private final double SCALE = 0.8;
     
     private int red = 0;
@@ -22,7 +22,8 @@ public class FractalTreePanel extends JPanel
     private int blue = 255;
     
     private int currentOrder;
-    private int angle = -90;
+    private int leftAngle;
+    private int rightAngle;
 
     /**
      * Default constructor for objects of class FractalTree
@@ -30,10 +31,10 @@ public class FractalTreePanel extends JPanel
     public FractalTreePanel()
     {
         // initialise instance variables
-        setBackground(Color.WHITE);
+        setBackground(Color.BLACK   );
         setPreferredSize(new Dimension(1200, 1000));
-        setOrder(20);
-        setAngle(15);
+        setOrder(12);
+        setAngle(-15);
     }
 
     /**
@@ -83,8 +84,8 @@ public class FractalTreePanel extends JPanel
             page.setColor(new Color(red += 20, this.green += 10, blue -= 30));
             page.drawLine(x1, y1, x2, y2);
         
-            drawFractal(order-1, x2, y2, x3, y3, page, rightAngle - ANGLE, rightAngle + ANGLE);
-            drawFractal(order-1, x2, y2, x4, y4, page, leftAngle - ANGLE, leftAngle + ANGLE);
+            drawFractal(order-1, x2, y2, x3, y3, page, rightAngle - this.rightAngle, rightAngle + this.rightAngle);
+            drawFractal(order-1, x2, y2, x4, y4, page, leftAngle - this.leftAngle, leftAngle + this.leftAngle);
 
         }
     }
@@ -93,7 +94,7 @@ public class FractalTreePanel extends JPanel
     {
         super.paintComponent(page);
         page.setColor(new Color(red, green, blue));
-        drawFractal(currentOrder, XSTART, YSTART, XEND, YEND, page, angle, -angle);
+        drawFractal(currentOrder, XSTART, YSTART, XEND, YEND, page, INITIALANGLE, -INITIALANGLE);
     }
     
     public int getOrder()
@@ -108,6 +109,7 @@ public class FractalTreePanel extends JPanel
 
     public void setAngle(int angle)
     {
-        this.angle = angle;
+        leftAngle = angle;
+        rightAngle = angle;
     }
 }
