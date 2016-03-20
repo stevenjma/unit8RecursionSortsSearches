@@ -10,20 +10,22 @@ import javax.swing.JPanel;
 public class FractalTreePanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private final int XSTART = 625;
-    private final int YSTART = 975;
-    private final int XEND = 625;
-    private final int YEND = 775;
-    private final int INITIALANGLE = -15;
     private final double SCALE = 0.8;
     
     private int red = 0;
     private int green = 0;
     private int blue = 255;
     
+    private int xStart = 600;
+    private int xEnd = 600;
+    private int yStart = 975;
+    private int yEnd = 775;
+    
     private int currentOrder;
     private int leftAngle;
     private int rightAngle;
+    private int initialAngle;
+    private int change;
 
     /**
      * Default constructor for objects of class FractalTree
@@ -35,6 +37,7 @@ public class FractalTreePanel extends JPanel
         setPreferredSize(new Dimension(1200, 1000));
         setOrder(12);
         setAngle(-15);
+        setInitialAngle(-15);
     }
 
     /**
@@ -82,7 +85,7 @@ public class FractalTreePanel extends JPanel
                 this.blue = 255;
             }
             page.setColor(new Color(red += 20, this.green += 10, blue -= 30));
-            page.drawLine(x1, y1, x2, y2);
+            page.drawLine(x1, y1, x2 + change, y2);
         
             drawFractal(order-1, x2, y2, x3, y3, page, rightAngle - this.rightAngle, rightAngle + this.rightAngle);
             drawFractal(order-1, x2, y2, x4, y4, page, leftAngle - this.leftAngle, leftAngle + this.leftAngle);
@@ -94,7 +97,7 @@ public class FractalTreePanel extends JPanel
     {
         super.paintComponent(page);
         page.setColor(new Color(red, green, blue));
-        drawFractal(currentOrder, XSTART, YSTART, XEND, YEND, page, INITIALANGLE, -INITIALANGLE);
+        drawFractal(currentOrder, xStart, yStart, xEnd, yEnd, page, initialAngle, -initialAngle);
     }
     
     public int getOrder()
@@ -111,5 +114,15 @@ public class FractalTreePanel extends JPanel
     {
         leftAngle = angle;
         rightAngle = angle;
+    }
+    
+    public void setInitialAngle(int angle)
+    {
+        initialAngle = angle;
+    }
+    
+    public void changeAwesome(int change)
+    {
+        this.change = change;
     }
 }
