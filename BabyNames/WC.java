@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.lang.Exception;
 
 public class WC
 {
@@ -8,14 +9,31 @@ public class WC
         Scanner s = new Scanner(System.in);
         System.out.println("File Name: ");
         String fileName = s.next();
-        Scanner in = null;
         
         File file = new File(fileName);
+        
+        int words = 0; 
+        int chars = 0;
+        
         try{
-            in = new Scanner(file);
+            Scanner in = new Scanner(file);
+            
             while (in.hasNext()){
-                System.out.printf("%8.2f\n", in.next());
+                in.next();
+                words++;
             }
+            
+            in.close();
+            in = new Scanner(file);
+            in.useDelimiter("");
+            
+            while (in.hasNext()){
+                in.next();
+                chars++;
+            }
+            
+            System.out.println(words);
+            System.out.println(chars);
             in.close();
         } 
         catch (Exception FileNotFoundException){
