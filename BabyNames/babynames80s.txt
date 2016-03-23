@@ -1,12 +1,8 @@
-
-Popular names of the 1980s
-Males	Females
-Rank	Name	Number	Name	Number
 1	Michael	663522	Jessica	469426
 2	Christopher	554764	Jennifer	440829
 3	Matthew	458864	Amanda	369690
 4	Joshua	396527	Ashley	352137
-5	David	383578	Sarah	272536
+5	David	383578	Sarah	272536	
 6	James	356338	Stephanie	218118
 7	Daniel	345390	Melissa	217889
 8	Robert	321575	Nicole	210445

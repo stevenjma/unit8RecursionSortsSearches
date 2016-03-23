@@ -5,13 +5,18 @@ import java.util.Scanner;
 public class BabyNames
 {
    public static final double LIMIT = 50;
+   public static final int MALETOTAL = 19229058;
+   public static final int FEMALETOTAL = 18450257;
 
    public static void main(String[] args) throws FileNotFoundException
    {  
-      Scanner in = new Scanner(new File("babynames80s.txt"));
+      Scanner s = new Scanner(System.in);
+      System.out.println("Enter the name of the file.");
+      String fileName = s.next();
+      Scanner in = new Scanner(new File(fileName));
          
-      RecordReader boys = new RecordReader(LIMIT);
-      RecordReader girls = new RecordReader(LIMIT);
+      RecordReader boys = new RecordReader(LIMIT, MALETOTAL);
+      RecordReader girls = new RecordReader(LIMIT, FEMALETOTAL);
       
       while (boys.hasMore() || girls.hasMore())
       {
@@ -24,4 +29,4 @@ public class BabyNames
 
       in.close();
    }
-}	
+}   
