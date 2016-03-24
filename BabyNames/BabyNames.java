@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BabyNames
 {
-   public static final double LIMIT = 50;
+   public static final double LIMIT = 0.5;
    public static final int MALETOTAL = 19229058;
    public static final int FEMALETOTAL = 18450257;
 
@@ -18,7 +18,7 @@ public class BabyNames
       RecordReader boys = new RecordReader(LIMIT, MALETOTAL);
       RecordReader girls = new RecordReader(LIMIT, FEMALETOTAL);
       
-      while (boys.hasMore() || girls.hasMore())
+      while ((boys.hasMore() || girls.hasMore()) && in.hasNext())
       {
          int rank = in.nextInt();
          System.out.print(rank + " ");

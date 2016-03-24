@@ -28,7 +28,7 @@ public class RecordReader
    {
        String name = in.next();
        int number = in.nextInt();
-       double percent = number / totalNumber;
+       double percent = number / (double)totalNumber;
       
       if (total < limit) { System.out.print(name + " "); }
       total = total + percent;
