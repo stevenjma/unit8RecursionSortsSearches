@@ -25,6 +25,29 @@ public class ArrayUtil
       return a;
    }
 
+   public static String[] randomStringArray(int length, int numChars)
+   {
+      String[] a = new String[length];
+      for (int i = 0; i < a.length; i++)
+      {
+         a[i] = randomString(numChars);
+      }
+      
+      return a;
+   }
+   
+   private static String randomString(int numChars)
+   {
+      String letters = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
+      String a = "";
+      for (int i = 0; i < numChars; i++)
+      {
+          int index = generator.nextInt(letters.length() - 1);
+          a += letters.substring(index, index + 1);
+      }
+      return a;
+   }
+   
    /**
       Swaps two entries of an array.
       @param a the array
